@@ -64,8 +64,11 @@
 
   <script type="text/javascript">
     // Question: What does this code do?
+    //when we click add character...
     $("#add-btn").on("click", function(event) {
+      
       event.preventDefault();
+      //saves input from form as new character object
       var newCharacter = {
         name: $("#name").val().trim(),
         role: $("#role").val().trim(),
@@ -74,6 +77,8 @@
       };
 
       // Question: What does this code do??
+      //jquery .post is shortcut ajax to allow us to  to url /api/characters, the variable newCharacter
+      //just calls the back end app.post(/api/characters), runs that code with the newCharacter object we built. 
       $.post("/api/characters", newCharacter)
         .then(function(data) {
           console.log("add.html", data);
